@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>قفل يوتيوب</title>
+<link rel="icon" href="icons/48.png">
+<link rel="stylesheet" href="lock.css">
+</head>
+<body>
+<main id="app"></main>
+
+<dialog id="adult" aria-labelledby="adult-title">
+  <form id="adult-form" method="dialog">
+    <h2 id="adult-title">للكبار</h2>
+    <p id="adult-note"></p>
+    <label id="password-row">كلمة السر
+      <input id="password" type="password" autocomplete="off" minlength="4" required>
+    </label>
+    <label id="confirm-row" hidden>اكتب كلمة السر تاني
+      <input id="confirm" type="password" autocomplete="off" minlength="4">
+    </label>
+    <label id="minutes-row">يفتح لمدة
+      <select id="minutes">
+        <option value="15">ربع ساعة</option>
+        <option value="30" selected>نص ساعة</option>
+        <option value="60">ساعة</option>
+        <option value="">لحد ما كروم يتقفل</option>
+      </select>
+    </label>
+    <p id="adult-error" role="alert"></p>
+    <div class="actions">
+      <button id="adult-submit" type="submit" class="solid">افتح يوتيوب</button>
+      <button id="adult-cancel" type="button" class="quiet">إلغاء</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="draw.js"></script>
+<script type="module" src="lock.js"></script>
+</body>
+</html>

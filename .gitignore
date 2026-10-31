@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+*.zip
+# Working files for this copy; not part of the extension.
+design/
+design-system/
+extension/_metadata/

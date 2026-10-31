@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/lock.html"
+      }
+    },
+    "condition": {
+      "requestDomains": [
+        "youtube.com",
+        "youtube-nocookie.com",
+        "youtubekids.com",
+        "youtu.be"
+      ],
+      "resourceTypes": [
+        "main_frame"
+      ],
+      "excludedRequestDomains": [
+        "accounts.youtube.com"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "youtube.com",
+        "youtube-nocookie.com",
+        "youtubekids.com",
+        "youtu.be"
+      ],
+      "resourceTypes": [
+        "sub_frame"
+      ],
+      "excludedRequestDomains": [
+        "accounts.youtube.com"
+      ]
+    }
+  }
+]

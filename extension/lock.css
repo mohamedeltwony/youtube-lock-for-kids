@@ -1,0 +1,95 @@
+@font-face {
+  font-family: "Baloo Bhaijaan 2";
+  src: url("fonts/baloo-arabic.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: block;
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200E, U+2010-2011, U+FB50-FDFF, U+FE70-FEFC;
+}
+@font-face {
+  font-family: "Baloo Bhaijaan 2";
+  src: url("fonts/baloo-latin.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: block;
+  unicode-range: U+0000-00FF, U+2000-206F;
+}
+
+:root { --ground: #FFC800; --text: #10214B; --strip: #10214B; --sand: #FF8A00; --cobalt: #1746D1; --ink: #10214B }
+:root[data-state="night"] { --ground: #10214B; --text: #FFFFFF; --strip: #0A1533 }
+
+* { box-sizing: border-box }
+html, body { margin: 0; height: 100% }
+body { background: var(--ground); color: var(--text); font-family: "Baloo Bhaijaan 2", "Geeza Pro", system-ui, sans-serif; overflow-x: hidden }
+
+main { position: relative; height: 100svh; min-height: 560px; overflow: hidden; display: grid; grid-template-rows: auto minmax(0, 1fr) auto }
+.copy { padding: clamp(44px, 5vh, 56px) clamp(20px, 6vw, 88px) 0 }
+h1 { margin: 0; font-size: clamp(40px, 5.4vw, 80px); line-height: 1.05; font-weight: 800; letter-spacing: 0 }
+.copy p { margin: 6px 0 0; font-size: clamp(19px, 1.8vw, 27px); line-height: 1.6; font-weight: 500 }
+
+.rig { position: relative; min-height: 0 }
+.rig > svg { position: absolute; inset: 0; width: 100%; height: 100% }
+.rig .phone { display: none }
+.rig .hourglass { display: block; width: 100%; height: auto }
+.rig foreignObject { overflow: visible }
+
+.strip { position: relative; background: var(--strip); padding: 34px clamp(56px, 6vw, 88px) 72px }
+.track { position: relative; height: 14px; border-radius: 7px; background: #ffffff66 }
+.track i { position: absolute; inset-block: 0; inset-inline-start: 0; width: var(--p); border-radius: 7px; background: var(--sand) }
+.track b { position: absolute; top: 36px; right: var(--at); width: 54px; height: 54px; padding: 6px; border-radius: 50%; background: #fff; transform: translate(50%, -50%) }
+.track b svg { display: block; width: 100%; height: 100% }
+.track b.goal { --at: 100% }
+.track .mini-truck { position: absolute; top: -47px; right: var(--p); width: 104px; transform: translateX(50%) }
+
+.go { display: grid; place-items: center; align-content: center; width: 100%; aspect-ratio: 1; padding: 0; border: 14px solid var(--ink); border-radius: 50%; background: #fff; color: var(--cobalt); font: 800 58px/1.2 "Baloo Bhaijaan 2", sans-serif; box-shadow: 0 10px 0 var(--ink); cursor: pointer }
+.go svg { width: 46%; height: auto }
+.go:active { translate: 0 6px; box-shadow: 0 4px 0 var(--ink) }
+.halo * { fill: #fff; stroke: #fff; stroke-width: 12px; stroke-linejoin: round }
+.halo > g[transform] * { stroke-width: 6.7px }
+
+.adult { position: absolute; inset-block-start: 12px; inset-inline-end: 16px; z-index: 3; display: inline-flex; gap: 6px; align-items: center; border: 0; background: #ffffffb0; color: #10214B; font: 500 15px/1 "Baloo Bhaijaan 2", sans-serif; padding: 9px 13px; border-radius: 999px; min-height: 40px; cursor: pointer }
+.adult svg { width: 16px; height: 16px }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 2px }
+:root[data-state="night"] .adult:focus-visible { outline-color: #fff }
+
+.moon { position: absolute; inset-block-start: 8%; inset-inline-end: 24%; width: clamp(70px, 9vw, 130px); aspect-ratio: 1; border-radius: 50%; background: #FFE36E }
+.star { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #fff; opacity: .85 }
+
+dialog { width: min(92vw, 420px); border: 0; border-radius: 22px; padding: 26px; color: #10214B; font-family: inherit; box-shadow: 0 22px 60px #10214b66 }
+dialog::backdrop { background: #10214b99 }
+dialog h2 { margin: 0; font-size: 30px; line-height: 1.2; font-weight: 800 }
+dialog p { margin: 4px 0 0; font-size: 16px; line-height: 1.6; font-weight: 500 }
+dialog p:empty { display: none }
+dialog label { display: grid; gap: 4px; margin-block-start: 14px; font-size: 17px; font-weight: 500 }
+dialog label[hidden] { display: none }
+dialog input, dialog select { width: 100%; min-height: 46px; padding: 6px 12px; border: 2px solid #10214B; border-radius: 12px; font: 500 18px "Baloo Bhaijaan 2", sans-serif; color: inherit; background: #fff }
+#adult-error { margin-block-start: 12px; color: #B3261E; font-weight: 500 }
+.actions { display: flex; gap: 12px; align-items: center; margin-block-start: 18px }
+.solid, .quiet { font: 800 18px/1 "Baloo Bhaijaan 2", sans-serif; border-radius: 12px; min-height: 46px; padding: 8px 20px; cursor: pointer }
+.solid { flex: 1; border: 0; background: #1746D1; color: #fff }
+.quiet { border: 0; background: none; color: #10214B; font-weight: 500 }
+
+.stream { animation: fall 3s linear infinite }
+:root:not([data-state="night"]) .rest-pending .mini-truck { animation: bob 4s ease-in-out infinite }
+.rest-pending .go { animation: breathe 3.6s ease-in-out infinite }
+.resting .stream, .resting .mini-truck, .resting .go { animation-play-state: paused }
+@keyframes fall { to { stroke-dashoffset: -46 } }
+@keyframes bob { 50% { translate: 0 -3px } }
+@keyframes breathe { 50% { scale: 1.03 } }
+@media (prefers-reduced-motion: reduce) {
+  .stream, .rest-pending .mini-truck, .rest-pending .go { animation: none }
+}
+
+@media (max-width: 760px), (orientation: portrait) {
+  main { grid-template-rows: minmax(0, 1fr) auto auto }
+  .copy { text-align: center; padding-block: 58px 8px; align-self: center }
+  .rig { height: min(100vw * .9375, 100svh - 260px) }
+  .rig .desk { display: none }
+  .rig .phone { display: block }
+  .strip { padding: 34px 44px 62px }
+  .track b { width: 46px; height: 46px; padding: 5px; top: 31px }
+  .track .mini-truck { width: 80px; top: -37px }
+  .moon { inset-inline-end: auto; inset-inline-start: 20px; inset-block-start: 14px; width: 62px }
+  .star.wide { display: none }
+}
+@media (min-width: 600px) and (max-width: 760px), (min-width: 600px) and (orientation: portrait) {
+  .star { display: none }
+}

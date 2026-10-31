@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>قفل يوتيوب</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<h1>قفل يوتيوب</h1>
+<p id="state"></p>
+<p id="watched"></p>
+<button id="lock-now" class="solid" type="button" hidden>اقفل دلوقتي</button>
+
+<details id="schedule">
+  <summary>المواعيد</summary>
+  <form id="schedule-form">
+    <fieldset>
+      <legend>الجلسة الأولى</legend>
+      <label>تبدأ <input id="s1-start" type="time" required></label>
+      <label>دقايق <input id="s1-minutes" type="number" min="0" max="120" required></label>
+    </fieldset>
+    <fieldset>
+      <legend>الجلسة التانية</legend>
+      <label>تبدأ <input id="s2-start" type="time" required></label>
+      <label>دقايق <input id="s2-minutes" type="number" min="0" max="120" required></label>
+    </fieldset>
+    <fieldset>
+      <legend>محطات الطريق</legend>
+      <label>الغدا <input id="lunch" type="time" required></label>
+      <label>القيلولة <input id="nap" type="time" required></label>
+      <label>النوم <input id="bedtime" type="time" required></label>
+      <label>الصحيان <input id="wake" type="time" required></label>
+    </fieldset>
+    <p id="total"></p>
+    <label class="wide">كلمة السر <input id="schedule-password" type="password" autocomplete="off" required></label>
+    <button class="solid" type="submit">احفظ المواعيد</button>
+    <p class="message" id="schedule-message" role="status"></p>
+  </form>
+</details>
+
+<details id="password">
+  <summary>غيّر كلمة السر</summary>
+  <form id="password-form">
+    <label class="wide">الحالية <input id="current" type="password" autocomplete="off" required></label>
+    <label class="wide">الجديدة <input id="next" type="password" autocomplete="off" minlength="4" required></label>
+    <button class="solid" type="submit">احفظ كلمة السر</button>
+    <p class="message" id="password-message" role="status"></p>
+  </form>
+</details>
+
+<script type="module" src="popup.js"></script>
+</body>
+</html>
